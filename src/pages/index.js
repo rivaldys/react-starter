@@ -1,9 +1,9 @@
 import About from './About'
+import Contact from './Contact'
 import Home from './Home'
-import Login from './Login'
 
 export {
     About,
-    Home,
-    Login
+    Contact,
+    Home
 }
