@@ -15,7 +15,8 @@ export default ({ mode }) => {
                 "@/router": "/src/router",
                 "@/services/actions": "/src/services/actions",
                 "@/services": "/src/services",
-                "@/utils": "/src/utils"
+                "@/utils": "/src/utils",
+                "@/utils/hooks": "/src/utils/_hooks",
             }
         },
         server: {

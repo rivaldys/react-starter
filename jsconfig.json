@@ -8,7 +8,8 @@
             "@/router": ["router"],
             "@/services/actions": ["services/actions"],
             "@/services/*": ["services/*"],
-            "@/utils": ["utils"]
+            "@/utils": ["utils"],
+            "@/utils/hooks": ["utils/_hooks"]
         }
     }
 }
