@@ -19,6 +19,10 @@ Atomic Design in design concept generally categorizes the component/element from
 - Routing systems: `react-router-dom`
 - Absolute imports
 - Custom app's port
+- Custom hooks:
+   - useEventListener
+   - useForm
+   - useNetworkStatus
 
 ## &#10095; Installation Prerequisites
 The following are required to be able to run this application:
