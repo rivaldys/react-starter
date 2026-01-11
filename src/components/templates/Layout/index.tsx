@@ -32,12 +32,12 @@ const Layout = ({ children }: LayoutProps) =>
                 </nav>
             </header>
 
-            <main className="content">
+            <main className="flex-1">
                 {children}
             </main>
 
-            <footer className="footer">
-                <p>&copy; 2022-{year} React Starter v2.0.0 by <a className="profile-link" href="https://rivaldy.net" target="_blank">Ahmad Rivaldy S</a></p>
+            <footer className="h-13.75! flex items-center justify-center text-[14px]">
+                <p className="mb-3.75 text-[#888888]!">&copy; 2022-{year} React Starter v2.0.0 by <a className="text-[#999999]! font-medium transition duration-300 hover:opacity-80" href="https://rivaldy.net" target="_blank">Ahmad Rivaldy S</a></p>
             </footer>
         </div>
     )

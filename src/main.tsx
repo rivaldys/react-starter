@@ -1,3 +1,4 @@
+import { ErrorBoundary } from '@/components'
 import store from '@/services/store'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -8,10 +9,12 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <HelmetProvider>
-            <Provider store={store}>
-                <App />
-            </Provider>
-        </HelmetProvider>
+        <ErrorBoundary>
+            <HelmetProvider>
+                <Provider store={store}>
+                    <App />
+                </Provider>
+            </HelmetProvider>
+        </ErrorBoundary>
     </StrictMode>
 )

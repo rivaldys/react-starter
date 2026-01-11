@@ -1,5 +1,6 @@
 import { createBrowserRouter, Route, RouterProvider, Routes, Navigate, Outlet } from 'react-router-dom'
 import { Suspense } from 'react'
+import { LoadingFallback } from '@/components'
 import { getEnv } from '@/shared/utils'
 import { routeMapper } from './core'
 import routes from './routes'
@@ -7,22 +8,6 @@ import ProtectedRoute from './core/ProtectedRoute'
 
 const rawBasePath = getEnv('VITE_PUBLIC_APP_BASE_PATH', '/')
 const basePath = rawBasePath === '/' ? undefined : rawBasePath!.replace(/\/+$/, '')
-
-/**
- * Loading fallback for lazy-loaded components
- */
-function LoadingFallback() {
-    return (
-        <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '100vh'
-        }}>
-            Loading...
-        </div>
-    )
-}
 
 /**
  * Helper function to convert custom route definitions to React Router v6 Route components
@@ -55,7 +40,7 @@ function renderRoutes(routes: any[], level = 0): React.ReactNode[] {
             // Server: Static imports don't trigger fallback
             // Client: Lazy imports use fallback during loading
             const element = (
-                <Suspense fallback={<LoadingFallback />}>
+                <Suspense fallback={<LoadingFallback type="page" />}>
                     <route.element />
                 </Suspense>
             )
