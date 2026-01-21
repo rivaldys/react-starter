@@ -3,23 +3,31 @@ import DocLayout from '../_components/DocLayout'
 export default function StateManagement()
 {
     return (
-        <DocLayout title="State Management" icon="🔄">
-            <p>
-                This project uses <strong>Redux Toolkit</strong> for state management with full support 
-                for <strong>Server-Side Rendering (SSR) hydration</strong>.
-            </p>
+        <>
+            <title>State Management &#8729; React Starter</title>
+            <meta name="description" content="Redux Toolkit setup and state management with SSR hydration support in React Starter." />
+            <meta name="keywords" content="React, Redux Toolkit, State Management, SSR" />
+            <meta property="og:title" content="State Management &#8729; React Starter" />
+            <meta property="og:description" content="Redux Toolkit configuration and SSR hydration guide." />
+            <meta property="og:type" content="article" />
 
-            <h2>Overview</h2>
-            <p>Redux Toolkit provides:</p>
-            <ul>
-                <li>Simplified store setup with <code>configureStore</code></li>
-                <li>Immutable updates with Immer</li>
-                <li>RTK Query for data fetching</li>
-                <li>DevTools integration</li>
-            </ul>
+            <DocLayout title="State Management" icon="🔄">
+                <p>
+                    This project uses <strong>Redux Toolkit</strong> for state management with full support 
+                    for <strong>Server-Side Rendering (SSR) hydration</strong>.
+                </p>
 
-            <h2>Store Setup</h2>
-            <pre><code>{`// services/store/index.ts
+                <h2>Overview</h2>
+                <p>Redux Toolkit provides:</p>
+                <ul>
+                    <li>Simplified store setup with <code>configureStore</code></li>
+                    <li>Immutable updates with Immer</li>
+                    <li>RTK Query for data fetching</li>
+                    <li>DevTools integration</li>
+                </ul>
+
+                <h2>Store Setup</h2>
+                <pre><code>{`// services/store/index.ts
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from '../slices/authSlice'
 
@@ -69,14 +77,14 @@ const authSlice = createSlice({
 export const { setUser, logout } = authSlice.actions
 export default authSlice.reducer`}</code></pre>
 
-            <h2>SSR Hydration</h2>
-            <p>
-                When using SSR, the server pre-renders the page with initial state. 
-                The client then "hydrates" this state to make it interactive.
-            </p>
+                <h2>SSR Hydration</h2>
+                <p>
+                    When using SSR, the server pre-renders the page with initial state. 
+                    The client then "hydrates" this state to make it interactive.
+                </p>
 
-            <h3>Server-Side (entry-server.tsx)</h3>
-            <pre><code>{`// Create store with initial data
+                <h3>Server-Side (entry-server.tsx)</h3>
+                <pre><code>{`// Create store with initial data
 const store = makeStore()
 
 // Dispatch actions to populate state
@@ -99,8 +107,8 @@ const stateScript = \`
     </script>
 \``}</code></pre>
 
-            <h3>Client-Side (entry-client.tsx)</h3>
-            <pre><code>{`// Get preloaded state from window
+                <h3>Client-Side (entry-client.tsx)</h3>
+                <pre><code>{`// Get preloaded state from window
 const preloadedState = window.__PRELOADED_STATE__
 delete window.__PRELOADED_STATE__
 
@@ -115,10 +123,10 @@ hydrateRoot(
     </Provider>
 )`}</code></pre>
 
-            <h2>Using State in Components</h2>
+                <h2>Using State in Components</h2>
 
-            <h3>Reading State</h3>
-            <pre><code>{`import { useSelector } from 'react-redux'
+                <h3>Reading State</h3>
+                <pre><code>{`import { useSelector } from 'react-redux'
 import type { RootState } from '@/services/store'
 
 function UserProfile() {
@@ -134,8 +142,8 @@ function UserProfile() {
     return <p>Welcome, {user?.name}</p>
 }`}</code></pre>
 
-            <h3>Dispatching Actions</h3>
-            <pre><code>{`import { useDispatch } from 'react-redux'
+                <h3>Dispatching Actions</h3>
+                <pre><code>{`import { useDispatch } from 'react-redux'
 import { setUser, logout } from '@/services/slices/authSlice'
 import type { AppDispatch } from '@/services/store'
 
@@ -150,8 +158,8 @@ function LoginButton() {
     return <button onClick={handleLogin}>Login</button>
 }`}</code></pre>
 
-            <h2>Async Actions (Thunks)</h2>
-            <pre><code>{`// services/slices/authThunks.ts
+                <h2>Async Actions (Thunks)</h2>
+                <pre><code>{`// services/slices/authThunks.ts
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const fetchUser = createAsyncThunk(
@@ -177,14 +185,15 @@ extraReducers: (builder) => {
         })
 }`}</code></pre>
 
-            <h2>Best Practices</h2>
-            <ul>
-                <li><strong>Normalize State:</strong> Keep state flat and avoid deeply nested structures</li>
-                <li><strong>Selectors:</strong> Use memoized selectors for derived data</li>
-                <li><strong>Slice Organization:</strong> One slice per feature/domain</li>
-                <li><strong>TypeScript:</strong> Always type your state and actions</li>
-                <li><strong>DevTools:</strong> Use Redux DevTools for debugging</li>
-            </ul>
-        </DocLayout>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Normalize State:</strong> Keep state flat and avoid deeply nested structures</li>
+                    <li><strong>Selectors:</strong> Use memoized selectors for derived data</li>
+                    <li><strong>Slice Organization:</strong> One slice per feature/domain</li>
+                    <li><strong>TypeScript:</strong> Always type your state and actions</li>
+                    <li><strong>DevTools:</strong> Use Redux DevTools for debugging</li>
+                </ul>
+            </DocLayout>
+        </>
     )
 }

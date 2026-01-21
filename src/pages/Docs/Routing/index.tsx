@@ -3,16 +3,24 @@ import DocLayout from '../_components/DocLayout'
 export default function Routing()
 {
     return (
-        <DocLayout title="Routing" icon="🧭">
-            <p>
-                This project uses <strong>React Router v7</strong> with a centralized route configuration 
-                system that supports <strong>SSR</strong>, <strong>protected routes</strong>, and 
-                <strong> automatic navbar generation</strong>.
-            </p>
+        <>
+            <title>Routing &#8729; React Starter</title>
+            <meta name="description" content="React Router v7 configuration, protected routes, and SSR support in React Starter." />
+            <meta name="keywords" content="React, React Router, Routing, Protected Routes, SSR" />
+            <meta property="og:title" content="Routing &#8729; React Starter" />
+            <meta property="og:description" content="React Router configuration and protected routes guide." />
+            <meta property="og:type" content="article" />
 
-            <h2>Route Configuration</h2>
-            <p>Routes are defined in a single configuration file:</p>
-            <pre><code>{`// router/routes.tsx
+            <DocLayout title="Routing" icon="🧭">
+                <p>
+                    This project uses <strong>React Router v7</strong> with a centralized route configuration 
+                    system that supports <strong>SSR</strong>, <strong>protected routes</strong>, and 
+                    <strong> automatic navbar generation</strong>.
+                </p>
+
+                <h2>Route Configuration</h2>
+                <p>Routes are defined in a single configuration file:</p>
+                <pre><code>{`// router/routes.tsx
 import type { RouteConfig } from './core'
 
 export const routes: RouteConfig[] = [
@@ -51,8 +59,8 @@ export const routes: RouteConfig[] = [
     },
 ]`}</code></pre>
 
-            <h2>Route Types</h2>
-            <pre><code>{`interface RouteConfig {
+                <h2>Route Types</h2>
+                <pre><code>{`interface RouteConfig {
     path: string           // URL path
     element: string        // Component name (lazy loaded)
     label?: string         // Display name for navbar
@@ -61,9 +69,9 @@ export const routes: RouteConfig[] = [
     children?: RouteConfig[] // Nested routes
 }`}</code></pre>
 
-            <h2>Protected Routes</h2>
-            <p>Routes with <code>protected: true</code> require authentication:</p>
-            <pre><code>{`// router/core/ProtectedRoute/index.tsx
+                <h2>Protected Routes</h2>
+                <p>Routes with <code>protected: true</code> require authentication:</p>
+                <pre><code>{`// router/core/ProtectedRoute/index.tsx
 import { Navigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/services/store'
@@ -92,9 +100,9 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
     return <>{children}</>
 }`}</code></pre>
 
-            <h2>Lazy Loading Components</h2>
-            <p>Components are lazily loaded for better performance:</p>
-            <pre><code>{`// router/core/GetElement/index.tsx
+                <h2>Lazy Loading Components</h2>
+                <p>Components are lazily loaded for better performance:</p>
+                <pre><code>{`// router/core/GetElement/index.tsx
 import { lazy, Suspense } from 'react'
 import { Skeleton } from '@/components'
 
@@ -119,9 +127,9 @@ export function GetElement({ name }: { name: string }) {
     )
 }`}</code></pre>
 
-            <h2>Route Mapping</h2>
-            <p>The <code>routeMapper</code> converts route config to React Router format:</p>
-            <pre><code>{`// router/core/routeMapper/index.tsx
+                <h2>Route Mapping</h2>
+                <p>The <code>routeMapper</code> converts route config to React Router format:</p>
+                <pre><code>{`// router/core/routeMapper/index.tsx
 import { Route } from 'react-router-dom'
 import { GetElement, ProtectedRoute } from '../'
 
@@ -143,9 +151,9 @@ export function routeMapper(routes: RouteConfig[]): React.ReactNode {
     })
 }`}</code></pre>
 
-            <h2>Navbar Generation</h2>
-            <p>Navigation items are automatically generated from routes:</p>
-            <pre><code>{`// router/core/getNavbarRoutes/index.ts
+                <h2>Navbar Generation</h2>
+                <p>Navigation items are automatically generated from routes:</p>
+                <pre><code>{`// router/core/getNavbarRoutes/index.ts
 export function getNavbarRoutes(routes: RouteConfig[]) {
     return routes
         .filter((route) => route.showInNavbar)
@@ -168,8 +176,8 @@ return (
     </nav>
 )`}</code></pre>
 
-            <h2>Router Setup</h2>
-            <pre><code>{`// router/index.tsx
+                <h2>Router Setup</h2>
+                <pre><code>{`// router/index.tsx
 import { Routes } from 'react-router-dom'
 import { routes } from './routes'
 import { routeMapper } from './core'
@@ -182,13 +190,13 @@ export default function AppRouter() {
     )
 }`}</code></pre>
 
-            <h2>SSR Considerations</h2>
-            <ul>
-                <li><strong>StaticRouter:</strong> Used on server for SSR</li>
-                <li><strong>BrowserRouter:</strong> Used on client for hydration</li>
-                <li><strong>Location:</strong> Server passes URL to StaticRouter</li>
-            </ul>
-            <pre><code>{`// entry-server.tsx
+                <h2>SSR Considerations</h2>
+                <ul>
+                    <li><strong>StaticRouter:</strong> Used on server for SSR</li>
+                    <li><strong>BrowserRouter:</strong> Used on client for hydration</li>
+                    <li><strong>Location:</strong> Server passes URL to StaticRouter</li>
+                </ul>
+                <pre><code>{`// entry-server.tsx
 import { StaticRouter } from 'react-router-dom/server'
 
 const html = renderToString(
@@ -207,14 +215,15 @@ hydrateRoot(
     </BrowserRouter>
 )`}</code></pre>
 
-            <h2>Best Practices</h2>
-            <ul>
-                <li><strong>Centralized Config:</strong> Keep all routes in one place</li>
-                <li><strong>Lazy Loading:</strong> Use code splitting for large pages</li>
-                <li><strong>Type Safety:</strong> Define strict types for route config</li>
-                <li><strong>Protected Routes:</strong> Use HOC pattern for auth guards</li>
-                <li><strong>Nested Routes:</strong> Use Outlet for parent layouts</li>
-            </ul>
-        </DocLayout>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Centralized Config:</strong> Keep all routes in one place</li>
+                    <li><strong>Lazy Loading:</strong> Use code splitting for large pages</li>
+                    <li><strong>Type Safety:</strong> Define strict types for route config</li>
+                    <li><strong>Protected Routes:</strong> Use HOC pattern for auth guards</li>
+                    <li><strong>Nested Routes:</strong> Use Outlet for parent layouts</li>
+                </ul>
+            </DocLayout>
+        </>
     )
 }

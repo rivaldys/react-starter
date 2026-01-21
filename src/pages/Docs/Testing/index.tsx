@@ -3,24 +3,32 @@ import DocLayout from '../_components/DocLayout'
 export default function Testing()
 {
     return (
-        <DocLayout title="Testing" icon="🧪">
-            <p>
-                This project uses <strong>Vitest</strong> as the test runner with 
-                <strong> React Testing Library</strong> for component testing. 
-                The setup supports both unit tests and integration tests.
-            </p>
+        <>
+            <title>Testing | React Starter</title>
+            <meta name="description" content="Unit testing with Vitest and React Testing Library in React Starter. Learn testing best practices." />
+            <meta name="keywords" content="React, Testing, Vitest, React Testing Library" />
+            <meta property="og:title" content="Testing | React Starter" />
+            <meta property="og:description" content="Testing setup and best practices with Vitest and React Testing Library." />
+            <meta property="og:type" content="article" />
 
-            <h2>Test Stack</h2>
-            <ul>
-                <li><strong>Vitest:</strong> Fast unit test framework powered by Vite</li>
-                <li><strong>React Testing Library:</strong> DOM testing utilities</li>
-                <li><strong>@testing-library/jest-dom:</strong> Custom Jest matchers</li>
-                <li><strong>@testing-library/user-event:</strong> User interaction simulation</li>
-                <li><strong>jsdom:</strong> Browser environment simulation</li>
-            </ul>
+            <DocLayout title="Testing" icon="🧪">
+                <p>
+                    This project uses <strong>Vitest</strong> as the test runner with 
+                    <strong> React Testing Library</strong> for component testing. 
+                    The setup supports both unit tests and integration tests.
+                </p>
 
-            <h2>Configuration</h2>
-            <pre><code>{`// vitest.config.ts
+                <h2>Test Stack</h2>
+                <ul>
+                    <li><strong>Vitest:</strong> Fast unit test framework powered by Vite</li>
+                    <li><strong>React Testing Library:</strong> DOM testing utilities</li>
+                    <li><strong>@testing-library/jest-dom:</strong> Custom Jest matchers</li>
+                    <li><strong>@testing-library/user-event:</strong> User interaction simulation</li>
+                    <li><strong>jsdom:</strong> Browser environment simulation</li>
+                </ul>
+
+                <h2>Configuration</h2>
+                <pre><code>{`// vitest.config.ts
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import path from 'path'
@@ -45,8 +53,8 @@ export default defineConfig({
     },
 })`}</code></pre>
 
-            <h2>Test Setup</h2>
-            <pre><code>{`// src/test/setup.ts
+                <h2>Test Setup</h2>
+                <pre><code>{`// src/test/setup.ts
 import '@testing-library/jest-dom/vitest'
 import { cleanup } from '@testing-library/react'
 import { afterEach, vi } from 'vitest'
@@ -71,10 +79,10 @@ Object.defineProperty(window, 'matchMedia', {
     })),
 })`}</code></pre>
 
-            <h2>Writing Tests</h2>
+                <h2>Writing Tests</h2>
 
-            <h3>Component Test Example</h3>
-            <pre><code>{`// src/components/atoms/Button/Button.test.tsx
+                <h3>Component Test Example</h3>
+                <pre><code>{`// src/components/atoms/Button/Button.test.tsx
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
@@ -107,8 +115,8 @@ describe('Button', () => {
     })
 })`}</code></pre>
 
-            <h3>Hook Test Example</h3>
-            <pre><code>{`// src/shared/hooks/useForm/useForm.test.ts
+                <h3>Hook Test Example</h3>
+                <pre><code>{`// src/shared/hooks/useForm/useForm.test.ts
 import { renderHook, act } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import useForm from './index'
@@ -150,8 +158,8 @@ describe('useForm', () => {
     })
 })`}</code></pre>
 
-            <h3>Page Test with Router</h3>
-            <pre><code>{`// src/pages/Home/Home.test.tsx
+                <h3>Page Test with Router</h3>
+                <pre><code>{`// src/pages/Home/Home.test.tsx
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -182,8 +190,8 @@ describe('Home Page', () => {
     })
 })`}</code></pre>
 
-            <h2>Running Tests</h2>
-            <pre><code>{`# Run all tests
+                <h2>Running Tests</h2>
+                <pre><code>{`# Run all tests
 pnpm test
 
 # Run tests in watch mode
@@ -198,10 +206,10 @@ pnpm test src/components/Button.test.tsx
 # Run tests matching pattern
 pnpm test --grep "Button"`}</code></pre>
 
-            <h2>Mocking</h2>
+                <h2>Mocking</h2>
 
-            <h3>Mocking Modules</h3>
-            <pre><code>{`import { vi } from 'vitest'
+                <h3>Mocking Modules</h3>
+                <pre><code>{`import { vi } from 'vitest'
 
 // Mock entire module
 vi.mock('@/services/api', () => ({
@@ -216,8 +224,8 @@ vi.mock('@/shared/hooks/useAuth', () => ({
     }),
 }))`}</code></pre>
 
-            <h3>Mocking API Calls</h3>
-            <pre><code>{`import { vi } from 'vitest'
+                <h3>Mocking API Calls</h3>
+                <pre><code>{`import { vi } from 'vitest'
 
 // Mock fetch
 global.fetch = vi.fn().mockResolvedValue({
@@ -239,15 +247,16 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())`}</code></pre>
 
-            <h2>Best Practices</h2>
-            <ul>
-                <li><strong>Test Behavior:</strong> Test what users see, not implementation</li>
-                <li><strong>Use Queries Properly:</strong> Prefer getByRole over getByTestId</li>
-                <li><strong>Async Testing:</strong> Use findBy* for async operations</li>
-                <li><strong>User Events:</strong> Use userEvent over fireEvent</li>
-                <li><strong>Isolation:</strong> Each test should be independent</li>
-                <li><strong>Coverage:</strong> Aim for meaningful coverage, not 100%</li>
-            </ul>
-        </DocLayout>
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Test Behavior:</strong> Test what users see, not implementation</li>
+                    <li><strong>Use Queries Properly:</strong> Prefer getByRole over getByTestId</li>
+                    <li><strong>Async Testing:</strong> Use findBy* for async operations</li>
+                    <li><strong>User Events:</strong> Use userEvent over fireEvent</li>
+                    <li><strong>Isolation:</strong> Each test should be independent</li>
+                    <li><strong>Coverage:</strong> Aim for meaningful coverage, not 100%</li>
+                </ul>
+            </DocLayout>
+        </>
     )
 }

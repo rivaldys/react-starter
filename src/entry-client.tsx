@@ -3,7 +3,6 @@ import { createStore, type RootState } from '@/services/store'
 import { getEnv } from '@/shared/utils'
 import { StrictMode } from 'react'
 import { hydrateRoot } from 'react-dom/client'
-import { HelmetProvider } from 'react-helmet-async'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
@@ -47,13 +46,11 @@ hydrateRoot(
     document.getElementById('root')!,
     <StrictMode>
         <ErrorBoundary>
-            <HelmetProvider>
-                <BrowserRouter basename={basePath}>
-                    <Provider store={store}>
-                        <App />
-                    </Provider>
-                </BrowserRouter>
-            </HelmetProvider>
+            <BrowserRouter basename={basePath}>
+                <Provider store={store}>
+                    <App />
+                </Provider>
+            </BrowserRouter>
         </ErrorBoundary>
     </StrictMode>
 )

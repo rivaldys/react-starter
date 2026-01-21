@@ -5,8 +5,16 @@ import './index.css'
 export default function About()
 {
     return (
-        <Layout>
-            <div className="about-container">
+        <>
+            <title>About &#8729; React Starter</title>
+            <meta name="description" content="Learn about React Starter - A modern, production-ready React boilerplate with Atomic Design methodology and SSR support." />
+            <meta name="keywords" content="React, About, Atomic Design, SSR, Boilerplate" />
+            <meta property="og:title" content="About | React Starter" />
+            <meta property="og:description" content="A modern React boilerplate with Atomic Design methodology and SSR support." />
+            <meta property="og:type" content="website" />
+
+            <Layout>
+                <div className="about-container">
                 {/* Title Section */}
                 <div className="about-title-wrapper">
                     <h1 className="about-title">About React Starter 🚀</h1>
@@ -45,10 +53,11 @@ export default function About()
 
                 <p>
                     <span className="highlight">&gt; Learn More</span>
-                    Check out the <Link to="/docs" style={{ color: '#818cf8', textDecoration: 'underline' }}>Documentation</Link> for 
+                    Check out the <Link to="/docs" style={{ color: '#1ABC9C', textDecoration: 'underline' }}>Documentation</Link> for 
                     detailed guides on project structure, components, state management, routing, testing, and deployment.
                 </p>
             </div>
         </Layout>
+    </>
     )
 }

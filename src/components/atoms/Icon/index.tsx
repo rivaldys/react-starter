@@ -1,11 +1,17 @@
-import { IcMenu } from '@/icons'
+import { IcDocker, IcMenu, IcReact, IcTailwind, IcTypescript, IcVite } from '@/icons'
 import type { IconProps } from '@/shared/types'
 
 const iconMap = {
-    'menu': IcMenu
+    'docker': IcDocker,
+    'menu': IcMenu,
+    'react': IcReact,
+    'tailwind': IcTailwind,
+    'typescript': IcTypescript,
+    'vite': IcVite
 } as const
 
 export type IconName = keyof typeof iconMap
+export const iconNames = Object.keys(iconMap) as IconName[]
 
 export default function Icon({ className, name, size, color, variant }: IconProps)
 {

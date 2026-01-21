@@ -58,8 +58,8 @@
 }
 
 .doc-nav-item.active {
-    background-color: #ede9fe;
-    color: #7c3aed;
+    background-color: #d1fae5;
+    color: #059669;
     font-weight: 500;
 }
 
@@ -175,7 +175,7 @@
 }
 
 .doc-content a {
-    color: #7c3aed;
+    color: #059669;
     text-decoration: none;
 }
 
@@ -189,7 +189,7 @@
     border-radius: 4px;
     font-size: 0.875em;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    color: #7c3aed;
+    color: #059669;
 }
 
 .doc-content pre {

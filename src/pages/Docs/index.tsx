@@ -1,5 +1,6 @@
+import { Icon, Layout } from '@/components'
+import { iconNames, type IconName } from '@/components/atoms/Icon'
 import { Link } from 'react-router-dom'
-import { Layout } from '@/components'
 import './index.css'
 
 const docs = [
@@ -48,14 +49,15 @@ const docs = [
 ]
 
 const features = [
-    { icon: '⚛️', title: 'React 19', description: 'Latest React with concurrent features' },
-    { icon: '🔷', title: 'TypeScript', description: 'Full type safety across the codebase' },
-    { icon: '⚡', title: 'Vite', description: 'Lightning-fast HMR and optimized builds' },
-    { icon: '🎨', title: 'Tailwind CSS 4', description: 'Utility-first CSS framework' },
+    { icon: 'react', title: 'React 19', description: 'Latest React with concurrent features' },
+    { icon: 'typescript', title: 'TypeScript', description: 'Full type safety across the codebase' },
+    { icon: 'vite', title: 'Vite', description: 'Lightning-fast HMR and optimized builds' },
+    { icon: 'tailwind', title: 'Tailwind CSS 4', description: 'Utility-first CSS framework' },
     { icon: '🏗️', title: 'Atomic Design', description: 'Scalable component architecture' },
     { icon: '🌐', title: 'SSR Support', description: 'Server-side rendering with Koa' },
     { icon: '🔄', title: 'Redux Toolkit', description: 'Predictable state management' },
-    { icon: '🧪', title: 'Vitest', description: 'Fast unit testing with coverage' }
+    { icon: '🧪', title: 'Vitest', description: 'Fast unit testing with coverage' },
+    { icon: 'docker', title: 'Docker', description: 'Containerized deployment ready' }
 ]
 
 const sitemap = [
@@ -85,7 +87,7 @@ const techStack = [
     },
     {
         category: 'State & Data',
-        items: ['Redux Toolkit 2', 'Axios', 'React Helmet Async']
+        items: ['Redux Toolkit 2', 'Axios']
     },
     {
         category: 'Build & Dev',
@@ -100,9 +102,17 @@ const techStack = [
 export default function Docs()
 {
     return (
-        <Layout>
-            <div className="docs-container">
-                {/* Title Section */}
+        <>
+            <title>Documentation &#8729; React Starter</title>
+            <meta name="description" content="Comprehensive documentation for React Starter - covering installation, project structure, components, state management, routing, testing, and deployment." />
+            <meta name="keywords" content="React, Documentation, Guide, Tutorial, Atomic Design" />
+            <meta property="og:title" content="Documentation &#8729; React Starter" />
+            <meta property="og:description" content="Comprehensive documentation for React Starter boilerplate." />
+            <meta property="og:type" content="article" />
+
+            <Layout>
+                <div className="docs-container">
+                    {/* Title Section */}
                 <div className="docs-title-wrapper">
                     <h1 className="docs-title">📚 Documentation</h1>
                     <p className="docs-subtitle">
@@ -116,7 +126,10 @@ export default function Docs()
                     <div className="docs-features-grid">
                         {features.map((feature) => (
                             <div key={feature.title} className="docs-feature-card">
-                                <span className="docs-feature-icon">{feature.icon}</span>
+                                {iconNames.includes(feature.icon as IconName) 
+                                    ? <div className="flex justify-center items-center mb-2 h-12"><Icon name={feature.icon as IconName} size={30} /></div>
+                                    : <span className="docs-feature-icon">{feature.icon}</span>
+                                }
                                 <h3 className="docs-feature-title">{feature.title}</h3>
                                 <p className="docs-feature-description">{feature.description}</p>
                             </div>
@@ -220,5 +233,6 @@ pnpm dev:ssr`}
                 </section>
             </div>
         </Layout>
+    </>
     )
 }
