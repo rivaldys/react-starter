@@ -1,5 +1,5 @@
 import { routes } from '@/router'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import './index.css'
 
 const Layout = ({ children }) =>
