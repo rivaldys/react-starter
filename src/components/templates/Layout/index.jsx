@@ -28,7 +28,7 @@ const Layout = ({ children }) =>
             </main>
 
             <footer className="footer">
-                <p>&copy; 2022-{year} React Starter v1.2.0 by <a className="profile-link" href="https://rivaldy.net" target="_blank">Ahmad Rivaldy S</a></p>
+                <p>&copy; 2022-{year} React Starter v1.2.1 by <a className="profile-link" href="https://rivaldy.net" target="_blank">Ahmad Rivaldy S</a></p>
             </footer>
         </div>
     )
